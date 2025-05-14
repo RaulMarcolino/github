@@ -1,3 +1,4 @@
+import { View, Text, TextInput, Pressable } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -50,10 +51,54 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+       <View 
+      style={{ 
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center'
+      }}>
+      <Text  
+        style={{ 
+          fontSize: 22,
+          color: '#fff',
+          marginVertical: 4
+        }}>
+          Nome do usuário
+      </Text>
+      <TextInput 
+        style={{
+          fontSize: 18,
+          backgroundColor: '#fff',
+          width: 200,
+          height: 35,
+          borderRadius: 25,
+          padding: 8
+        }} 
+      />
+      <Pressable 
+        style={{
+          backgroundColor: '#000',
+          width: 200,
+          height: 35,
+          borderRadius: 25,
+          padding: 8,
+          justifyContent: 'center', 
+          alignItems: 'center',
+          borderWidth: 2,
+          borderColor: '#fff',
+          marginVertical: 8
+        }}
+        >
+        <Text 
+          style={{
+            color: '#fff',
+            fontWeight: 'bold'
+            }}
+          >
+            Entrar
+          </Text>
+      </Pressable>
+     </View>
     </ThemeProvider>
   );
 }
